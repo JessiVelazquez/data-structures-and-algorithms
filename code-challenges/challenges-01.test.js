@@ -92,17 +92,26 @@ Use `forEach` to build a new array of strings, each string modified by the callb
 // });
 
 const greeting = (word) => {
-  let array = [];
+  let wordList = [];
   word.forEach(a => {
-    array.push(a.toUpperCase() + '!');
+    wordList.push(a.toUpperCase() + '!');
   });
-  return array;
+  return wordList;
 };
 
-greeting('hello', '301', 'students');
+greeting(['hello', '301', 'students']);
 
-const speaker = (words, callback) => {
-  // Solution code here...
+const speaker = (words) => {
+  let wordList = [];
+  words.forEach(a => {
+    let response = callBack(a);
+    wordList.push(response);
+  });
+  return wordList;
+};
+
+let callBack = (word) => {
+  return word.toUpperCase() + '!';
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -121,12 +130,22 @@ Within the addNumbers function, invoke the callback function as many times as ne
 Return the modified array.
 ------------------------------------------------------------------------------------------------ */
 
+// describe('Testing challenge 5', () => {
+//   test('It should add the number 8 to the array five times', () => {
+//     expect(addNumbers(8, [], 5, addValues)).toStrictEqual([8, 8, 8, 8, 8]);
+//     expect(addNumbers(8, [], 5, addValues).length).toStrictEqual(5);
+//   });
+// });
+
 const addValues = (arr, value) => {
-  // Solution code here...
+  arr.push(value);
 };
 
 const addNumbers = (num, arr, times, callback) => {
-  // Solution code here...
+  for(let i = 0; i < times; i++) {
+    callback(arr, num);
+  }
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -147,9 +166,34 @@ The inventory is formatted like this:
 This function should use forEach to populate your grocery list based on the store's inventory. If the item is available, add it to your list. Return the final list.
 ------------------------------------------------------------------------------------------------ */
 
+// describe('Testing challenge 6', () => {
+//   const inventory = [{ name: 'apples', available: true }, { name: 'pears', available: true }, { name: 'oranges', available: false }, { name: 'bananas', available: true }, { name: 'blueberries', available: false }];
+
+//   test('It should only add the available items to the list', () => {
+//     expect(createList(inventory)).toStrictEqual(['apples', 'pears', 'bananas']);
+//     expect(createList(inventory).length).toStrictEqual(3);
+//   });
+// });
+
 const createList = (availableItems) => {
-  // Solution code here...
+  let list = [];
+  availableItems.forEach(item => {
+    if (item.available === true) {
+      list.push(item.name);
+    }
+  });
+  return list;
 };
+
+// const createList = availableItems => {
+//   const itemList = [];
+//   availableItems.forEach( item => {
+//     if(item.available === true){
+//       itemList.push(item.name);
+//     }
+//   });
+//   return itemList;
+// };
 
 /* ------------------------------------------------------------------------------------------------
 STRETCH - CHALLENGE 7
