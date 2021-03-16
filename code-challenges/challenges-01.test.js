@@ -185,16 +185,6 @@ const createList = (availableItems) => {
   return list;
 };
 
-// const createList = availableItems => {
-//   const itemList = [];
-//   availableItems.forEach( item => {
-//     if(item.available === true){
-//       itemList.push(item.name);
-//     }
-//   });
-//   return itemList;
-// };
-
 /* ------------------------------------------------------------------------------------------------
 STRETCH - CHALLENGE 7
 
