@@ -78,15 +78,17 @@ const alkiBeach = [33, 31, 147, 130, 27, 93, 38, 126, 141, 63, 46, 17];
 
 const cookieStores = [firstPike, seaTac, seattleCenter, capHill, alkiBeach];
 
+
 const grandTotal = (stores) => {
-  for (let i = 0; i < hoursOpen.length; i++) {
+  let array =[];
+  for (let i = 0; i < stores[0].length; i++) {
     let count = 0;
     for (let j = 0; j < stores.length; j++) {
-      count += stores[j].perHourArray[i][1];
+      count += stores[j][i];
     }
-    return count;
+    array.push(count);
   }
-
+  return array;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -100,7 +102,12 @@ Write a function named salesData that uses forEach to iterate over the hourlySal
 ------------------------------------------------------------------------------------------------ */
 
 const salesData = (hours, data) => {
-  // Solution code here...
+  let salesArray = [];
+  hours.forEach(value => {
+    let index = hours.indexOf(value);
+    salesArray.push({ sales: `${data[index]} cookies`, time: hours[index]});
+  });
+  return salesArray;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -124,9 +131,21 @@ const errands = [
   }
 ];
 
+
 const howManyTreats = (arr) => {
-  // Solution code here...
+  let amount = 0;
+  arr.forEach(obj => {
+    if(obj.store === 'Pet store'){
+      obj.items.forEach(itemObj => {
+        if(itemObj.name === 'Treats'){
+          amount = itemObj.quantity;
+        }
+      });
+    }
+  });
+  return amount;
 };
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7 - Stretch Goal
