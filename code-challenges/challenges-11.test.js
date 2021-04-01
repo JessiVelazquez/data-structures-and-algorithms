@@ -12,7 +12,7 @@ Note the space in between first and last names.
 You can assume that neither firstName nor lastName will be blank
 ------------------------------------------------------------------------------------------------ */
 const toLastNames = people => {
-  // Solution code here...
+  return people.map((person) => person.firstName + ' ' + person.lastName);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -24,7 +24,8 @@ If the PIN is four numerical digits long, return true. Otherwise, return false.
 ------------------------------------------------------------------------------------------------ */
 
 const validatePin = (pin) => {
-  // Solution code here...
+  let regex = /^[0-9]{4}$/;
+  return regex.test(pin);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -36,7 +37,8 @@ If the word is between 5 and 10 characters long, return true. Otherwise, return 
 ------------------------------------------------------------------------------------------------ */
 
 const validateWord = (word) => {
-  // Solution code here...
+  let regex = /^[a-zA-Z]{5,10}$/gm;
+  return regex.test(word);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -48,7 +50,8 @@ If it does, return true. If not, return false.
 ------------------------------------------------------------------------------------------------ */
 
 const hasNumber = (string) => {
-  // Solution code here...
+  let regex = /[a-zA-Z]\d/gm;
+  return regex.test(string);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -68,8 +71,10 @@ Note: if you ever need to validate an email using a regex in practice, the Inter
 ------------------------------------------------------------------------------------------------ */
 
 const validateEmail = (email) => {
-  // Solution code here...
+  let regex = /^[a-z0-9]+(\.[a-z0-9]+)?@[a-z0-9]*\.((net)|(com)|(org))$/;
+  return regex.test(email);
 };
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6
@@ -93,7 +98,8 @@ Return either true or false.
 ------------------------------------------------------------------------------------------------ */
 
 const validatePhoneNumber = (phoneNumber) => {
-  // Solution code here...
+  let regex = /^(\((\d{3})\)[\s]?|(\d{3})[\s-]?)(\d{3})[\s-]?(\d{4})$/;
+  return regex.test(phoneNumber);
 };
 
 /* ------------------------------------------------------------------------------------------------
