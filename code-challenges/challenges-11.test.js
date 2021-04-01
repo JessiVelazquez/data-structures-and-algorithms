@@ -108,7 +108,7 @@ CHALLENGE 7 - Stretch Goal
 Write a function named findTagNames that iterates over an array of HTML strings and uses a regular expression pattern to return the closing tags.
 
 For example, findTagNames(['<h1>Hello, world!</h1>', '<p>Welcome to my site</p>']) returns ['/h1', '/p'].
-findTagNames(['<div><h1>Hello, world!</h1></div>', '<p>Welcome to my site</p>']) returns ['/h1', '/div', '/p'].
+findTagNames(['<div><h1>Hello, world!</h1></div>', '<p>Welcome to my site</p>']) returns ['/h1', '/div', '/p'].rtyhrthy
 ------------------------------------------------------------------------------------------------ */
 
 const findTagNames = elements => {
