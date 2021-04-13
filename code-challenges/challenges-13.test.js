@@ -3,13 +3,32 @@
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 1 - Review
 
-Write a function named longestString that takes in an array of strings and returns the index position of the longest string. 
+Write a function named longestString that takes in an array of strings and returns the index position of the longest string.
 ------------------------------------------------------------------------------------------------ */
 
+// describe('Testing challenge 1', () => {
+//   test('It should return an index position of the longest string', () => {
+//     const strArray1 = ['Ginger', 'Goose', 'Tangerine', 'Rosie', 'Mario', 'Malaki']
+//     const strArray2 = [];
+//     const strArray3= ['Ginger']
+
+//     expect(longestString(strArray1)).toStrictEqual(2);
+//     expect(longestString(strArray2)).toStrictEqual(-1);
+//     expect(longestString(strArray3)).toStrictEqual(0);
+//   });
+// });
+
 const longestString = (arr) => {
-// Solution code here...
+  let largestStr = ' ';
+  arr.forEach((str) => {
+    if (str.length > largestStr.length) {
+      largestStr = str;
+    }
+  });
+  return arr.indexOf(largestStr);
 };
-  
+
+
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
 
@@ -18,8 +37,22 @@ Write a function named firstLetters that takes in an array of strings and return
 For example, ['this is great :)', 'wow', 'whyyyyyy :(', ':)))))'] returns ['t', 'w', 'w', ':']
 ------------------------------------------------------------------------------------------------ */
 
+// describe('Testing challenge 2', () => {
+//   test('It should return the first letter of each element of the array', () => {
+//     const words = ['apple', 'banana', 'cantaloupe'];
+
+//     expect(firstLetters(words)).toStrictEqual(['a', 'b', 'c']);
+//     expect(firstLetters(['a', 'b', 'c', 'd'])).toStrictEqual(['a', 'b', 'c', 'd']);
+//     expect(firstLetters([])).toStrictEqual([]);
+//   });
+// });
+
 const firstLetters = (arr) => {
-  // Solution code here...
+  let array = [];
+  arr.forEach((str) => {
+    array.push(str.charAt(0));
+  });
+  return array;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -31,7 +64,10 @@ For example, ['this is great :)', 'wow', 'whyyyyyy :(', ':)))))'] returns ['this
 ------------------------------------------------------------------------------------------------ */
 
 const findHappiness = (arr) => {
-  // Solution code here...
+  let array = arr.filter((str) => {
+    return str.includes(':)');
+  });
+  return array;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -43,11 +79,21 @@ For example, (123) 456-7890 returns 1234567890
 ------------------------------------------------------------------------------------------------ */
 
 const standardizePhoneNumbers = (arr) => {
-  // Solution code here...
+  let regex1 = /[^\d]/g;
+  let regex2 = /(\d{3})(\d{3})(\d{4})/;
+  let array = [];
+  for (let i = 0; i < arr.length; i++) {
+    let cleaned = ('' + arr[i]).replace(regex1, '');
+    if (arr.length === 10) {
+      return arr.replace(regex2);
+    }
+    array.push(cleaned);
+  }
+  return array;
 };
 
 /* ------------------------------------------------------------------------------------------------
-CHALLENGE 5 
+CHALLENGE 5
 
 Write a function named onlyOddChars that takes in a string and returns only the odd-index characters from that string.
 
@@ -55,7 +101,13 @@ For example, 'abcdefg' returns 'bdf'
 ------------------------------------------------------------------------------------------------ */
 
 const onlyOddChars = (str) => {
-  // Solution code here...
+  let odd = [];
+  for (let i = 0; i < str.length; i++) {
+    if (i % 2 === 1) {
+      odd.push(str.charAt(i));
+    }
+  }
+  return odd.join('');
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -65,7 +117,15 @@ Write a function named allHappy that takes in an array of strings and returns a 
 ------------------------------------------------------------------------------------------------ */
 
 const allHappy = (arr) => {
-  // Solution code here...
+  let array = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].includes(':)')) {
+      array.push(arr[i]);
+    }
+  }
+  if (array.length === arr.length) {
+    return true;
+  } else return false;
 };
 
 /* ------------------------------------------------------------------------------------------------
