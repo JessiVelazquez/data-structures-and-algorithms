@@ -14,6 +14,9 @@ Each day, you'll add one new file to this folder to do your work for the day's a
 
 
 # Challenge 01 - Array Shift
+
+[Link to code](javascript/code-challenges/arrayShift/array-shift.js)
+
 ## Challenge Summary
 Write a function called insertShiftArray which takes in an array and the value to be added. Without utilizing any of the built-in methods available to your language, return an array with the new value added at the middle index.
 
