@@ -13,7 +13,7 @@ Each day, you'll add one new file to this folder to do your work for the day's a
 ### 401 Data Structures, Code Challenges
 
 
-# Challenge 02 - Array Shift
+# Challenge 03 - Array Shift
 
 ## Challenge Summary
 Write a function called insertShiftArray which takes in an array and the value to be added. Without utilizing any of the built-in methods available to your language, return an array with the new value added at the middle index.
@@ -28,7 +28,7 @@ I took the approach of getting the middle index, then using a for loop with if/e
 ![Whiteboard Image](javascript/code-challenges/arrayShift/assets/array-shift.jpg)
 
 
-# Challenge 03 - Array Binary Search
+# Challenge 04 - Array Binary Search
 
 ## Challenge Summary
 Write a function called BinarySearch which takes in 2 parameters: a sorted array and the search key. Without utilizing any of the built-in methods available to your language, return the index of the array’s element that is equal to the search key, or -1 if the element does not exist.
@@ -41,3 +41,46 @@ I wrote a function that sets the start and end of the array, then uses a while l
 
 ## Solution
 ![Whiteboard Image](javascript/code-challenges/arrayBinarySearch/assets/array-binary-search.jpg)
+
+
+# Challenge 05 - Linked List
+
+## Challenge Summary
+Define a method called insert which takes any value as an argument and adds a new node with that value to the head of the list with an O(1) Time performance.
+
+Define a method called includes which takes any value as an argument and returns a boolean result depending on whether that value exists as a Node’s value somewhere within the list.
+
+Define a method called toString which takes in no arguments and returns a string representing all the values in the Linked List, formatted as: "{ a } -> { b } -> { c } -> NULL".
+
+## Approach & Efficiency
+Methods were written within a linked list class (LL) to perform the linked list actions insert, includes() and toString. To perform these tasks, we used loops to traverse the linked list, doing the appropriate "thing" to the data, then returning the data. 
+
+## API
+
+**Insert:**
+Create a node
+If head does not exist, set node to head
+If head does exist, let the current node be the head
+Traverse the linked list with while loop
+When traverse is complete (current.next = NULL),
+  set current.next = node we created at start of function
+
+**Includes(value)**
+set node to head
+while more nodes exist:
+  if current node value = value
+    return true
+    otherwise move to the next node
+if while loop fails to find value; return false
+
+**toString:**
+
+set node to head
+set result equal to empty string
+while nodes exist:
+  add node value to result string
+  or, if node.next = NULL (no more nodes in list), add NULL to result list
+  move to next node
+return result string
+
+  
