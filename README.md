@@ -13,6 +13,8 @@ Each day, you'll add one new file to this folder to do your work for the day's a
 ### 401 Data Structures, Code Challenges
 
 
+//=============================================================================================\\
+
 # Challenge 03 - Array Shift
 
 ## Challenge Summary
@@ -28,6 +30,8 @@ I took the approach of getting the middle index, then using a for loop with if/e
 ![Whiteboard Image](javascript/code-challenges/arrayShift/assets/array-shift.jpg)
 
 
+//===========================================================================================\\
+
 # Challenge 04 - Array Binary Search
 
 ## Challenge Summary
@@ -42,6 +46,7 @@ I wrote a function that sets the start and end of the array, then uses a while l
 ## Solution
 ![Whiteboard Image](javascript/code-challenges/arrayBinarySearch/assets/array-binary-search.jpg)
 
+//======================================================================================\\
 
 # Challenge 05 - Linked List
 
@@ -83,4 +88,46 @@ while nodes exist:
   move to next node
 return result string
 
+//================================================================================\\
   
+# Challenge 06 - Linked List Insertions
+
+## Challenge Summary
+
+Write Functions that:
+
+.append(value) which adds a new node with the given value to the end of the list
+
+.insertBefore(value, newVal) which add a new node with the given newValue immediately before the first value node
+
+.insertAfter(value, newVal) which add a new node with the given newValue immediately after the first value node
+
+## Approach & Efficiency
+Methods were written within a linked list class (LL) to perform the linked list actions append, insertBefore, insertAfter. To perform these tasks, we used loops to traverse the linked list, doing the appropriate "thing" to the data, then returning the data.
+
+## API
+
+**append:**
+create new node
+if list does not have head, set node to head
+otherwise traverse the linked list
+when reaching the end (!current.next):
+  set currrent.next = node
+
+**insertBefore(value, newVal):**
+create new node
+if list does not have head, set node to head
+otherwise traverse the linked list
+if currrent node value = value
+  set current to new node.next
+continue traversing list
+return list
+
+**insertAfter(value, newVal):**
+create new node
+if list does not have head, set node to head
+otherwise traverse the linked list
+if current node value = value
+  set current.next to new node
+continue traversing list
+return list
