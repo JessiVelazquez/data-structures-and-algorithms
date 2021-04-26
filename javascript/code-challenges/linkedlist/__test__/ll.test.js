@@ -76,4 +76,83 @@ describe('Linked List', () => {
     expect(list.toString()).toEqual('{ 1 } -> { 2 } -> { 3 } -> NULL');
   });
 
+
+  it('can properly append a node to the end of the linked list', () => {
+    let list = new LL();
+    let first = 1;
+    let second = 2;
+
+    list.append(first);
+    list.append(second);
+    expect(list.head.next.value).toEqual(2);
+  });
+
+  it('Can successfully add multiple nodes to the end of a linked list', () => {
+    let list = new LL();
+    let first = 1;
+    let second = 2;
+    let third = 3;
+
+    list.append(first);
+    list.append(second);
+    list.append(third);
+    expect(list.head.next.value).toEqual(2);
+    expect(list.head.next.next.value).toEqual(3);
+  });
+
+  //=======NOT PASSING=========\\
+  it('Can successfully insert a node before a node located in the middle of a linked list', () => {
+    let list = new LL();
+    let first = 1;
+    let second = 3;
+    let third = 2;
+
+    list.append(first);
+    list.append(second);
+    list.insertBefore(second, third);
+    expect(list.head.next.value).toEqual(2);
+  });
+
+  //======WILL NOT PASS BECAUSE INSERT BEFORE IS NOT WORKING===========\\
+  it('Can successfully insert a node before the first node of a linked list', () => {
+
+  });
+
+  it('Can successfully insert after a node in the middle of the linked list', () => {
+    let list = new LL();
+    let first = 1;
+    let second = 2;
+    let third = 3;
+    let fourth = 4;
+
+    list.append(first);
+    list.append(second);
+    list.append(fourth);
+    list.insertAfter(second, third);
+    expect(list.head.next.next.value).toEqual(3);
+    console.log(list);
+  });
+
+  it('Can successfully insert a node after the last node of the linked list', () => {
+    let list = new LL();
+    let first = 1;
+    let second = 2;
+    let third = 3;
+
+    list.append(first);
+    list.append(second);
+    list.insert(third);
+    expect(list.head.next.next.value).toEqual(3);
+  });
+
+  it('can successfully insert a node  after the last node of the linked list', () => {
+    let list = new LL();
+    let first = 1;
+    let second = 2;
+
+    list.append(first);
+    list.insert(second);
+    expect(list.head.next.value).toEqual(2);
+  });
+
 });
