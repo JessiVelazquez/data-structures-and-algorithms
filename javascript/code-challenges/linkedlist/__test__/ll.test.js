@@ -155,4 +155,72 @@ describe('Linked List', () => {
     expect(list.head.next.value).toEqual(2);
   });
 
+  //=====================CHALLENGE 07============================\\
+
+  // Where k and the length of the list are the same
+
+  it('should retrieve the value of node k from end of list where k is greater than the length of the linked list', () => {
+    let list = new LL();
+    let first = 1;
+    let second = 2;
+    let third = 3;
+    let fourth = 4;
+
+    list.append(first);
+    list.append(second);
+    list.append(third);
+    list.append(fourth);
+    expect(list.kFromEnd(5)).toEqual(null);
+  });
+
+  it('should retrieve the value of node k from end of list where k and the length of the list are the same', () => {
+    let list = new LL();
+    let first = 1;
+    let second = 2;
+    let third = 3;
+    let fourth = 4;
+
+    list.append(first);
+    list.append(second);
+    list.append(third);
+    list.append(fourth);
+    expect(list.kFromEnd(4)).toEqual(1);
+  });
+
+  it('should retrieve the value of node k from end of list where k is not a positive integer', () => {
+    let list = new LL();
+    let first = 1;
+    let second = 2;
+    let third = 3;
+    let fourth = 4;
+
+    list.append(first);
+    list.append(second);
+    list.append(third);
+    list.append(fourth);
+    expect(list.kFromEnd(-1)).toEqual(null);
+  });
+
+  it('should retrieve the value of node k from end of linked list if list has only one node', () => {
+    let list = new LL();
+    let first = 1;
+
+    list.append(first);
+    expect(list.kFromEnd(1)).toEqual(null);
+  });
+
+  it('should retrieve the value of node k from end of list, “Happy Path” where k is not at the end, but somewhere in the middle of the linked list', () => {
+    let list = new LL();
+    let first = 1;
+    let second = 2;
+    let third = 3;
+    let fourth = 4;
+
+    list.append(first);
+    list.append(second);
+    list.append(third);
+    list.append(fourth);
+    expect(list.kFromEnd(2)).toEqual(3);
+  });
+
 });

@@ -131,3 +131,33 @@ if current node value = value
   set current.next to new node
 continue traversing list
 return list
+
+//================================================================================\\
+  
+# Challenge 07 - k from end of list
+
+## Challenge Summary
+
+Write a method for the Linked List class which takes a number, k, as a parameter. Return the node’s value that is k from the end of the linked list. You have access to the Node class and all the properties on the Linked List class as well as the methods created in previous challenges.
+
+## Approach & Efficiency
+
+Methods were written within a linked list class (LL) to perform the linked list actions append, insertBefore, insertAfter. To perform these tasks, we used loops to traverse the linked list, doing the appropriate "thing" to the data, then returning the data. In this case, we need to traverse the list twice to 1) get the total count of the list, and 2) to get the count from the start as total count - k.
+
+## API
+
+**k from end of list:**
+set head of list
+initialize total count to 0
+traverse list
+  get total count by increasing count by 1 with each node
+set countFromStart = total count - k value
+initialize result variable
+set head of list again
+initialize count2 to 0
+traverse list again
+  increase count2 by one with each node
+  if countFromStart + 1 = count2
+    return current node value
+  contiinue to traverse list
+return result
