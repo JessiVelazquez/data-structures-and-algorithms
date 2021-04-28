@@ -62,7 +62,7 @@ Methods were written within a linked list class (LL) to perform the linked list 
 
 ## API
 
-**Insert:**
+**Insert - pseudo code:**
 Create a node
 If head does not exist, set node to head
 If head does exist, let the current node be the head
@@ -70,7 +70,7 @@ Traverse the linked list with while loop
 When traverse is complete (current.next = NULL),
   set current.next = node we created at start of function
 
-**Includes(value)**
+**Includes(value) - psuedo code:**
 set node to head
 while more nodes exist:
   if current node value = value
@@ -78,7 +78,7 @@ while more nodes exist:
     otherwise move to the next node
 if while loop fails to find value; return false
 
-**toString:**
+**toString - pseudo code:**
 
 set node to head
 set result equal to empty string
@@ -107,14 +107,14 @@ Methods were written within a linked list class (LL) to perform the linked list 
 
 ## API
 
-**append:**
+**append - pseudo code:**
 create new node
 if list does not have head, set node to head
 otherwise traverse the linked list
 when reaching the end (!current.next):
   set currrent.next = node
 
-**insertBefore(value, newVal):**
+**insertBefore(value, newVal) - pseudo code:**
 create new node
 if list does not have head, set node to head
 otherwise traverse the linked list
@@ -123,7 +123,7 @@ if currrent node value = value
 continue traversing list
 return list
 
-**insertAfter(value, newVal):**
+**insertAfter(value, newVal) - pseudo code:**
 create new node
 if list does not have head, set node to head
 otherwise traverse the linked list
@@ -146,7 +146,7 @@ Methods were written within a linked list class (LL) to perform the linked list 
 
 ## API
 
-**k from end of list:**
+**k from end of list - pseudo code:**
 set head of list
 initialize total count to 0
 traverse list
@@ -161,3 +161,32 @@ traverse list again
     return current node value
   contiinue to traverse list
 return result
+
+
+//================================================================================\\
+  
+# Challenge 08 - k from end of list
+
+## Challenge Summary
+
+Write a function called zipLists which takes two linked lists as arguments. Zip the two linked lists together into one so that the nodes alternate between the two lists and return a reference to the head of the zipped list. Try and keep additional space down to O(1). You have access to the Node class and all the properties on the Linked List class as well as the methods created in previous challenges.
+
+## Approach & Efficiency
+
+The zipLists() function was written as a method of the linked list class (LL), which also includes methods for append, insertBefore, insertAfter, toString, and kFromEnd. To perform the desired task, we use a while loop to traverse the linked list, doing the appropriate "thing" to the data, then returning the data. In this case, we are simultaneously traversing two linked lists
+
+## API
+
+**zipped list - pseudo code:**
+instantiate new "zipped list"
+set head of list 1
+set head of list 2
+while list 1 or list 2 has nodes:
+  if list 1 has a node
+    append node value to zipped list
+    continue to next node
+  if list 2 has a node
+    append node value to zipped list
+    continue to next node
+return zipped list
+  
