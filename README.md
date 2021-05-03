@@ -23,3 +23,5 @@ See [setup instructions](https://codefellows.github.io/setup-guide/code-301/3-co
 
 [Stacks and Queues](./javascript/code-challenges/stacksAndQueues/README.md)
 
+[Queue with Stacks](./javascript/code-challenges/queueWithStacks/README.md)
+
