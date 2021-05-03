@@ -1,4 +1,9 @@
-# Data Structures and Algorithms
+# **Data Structures and Algorithms**
+
+For Table of Contents with links to each individual challenge, see top level README here:
+
+[Top Level README](../README.md)
+
 
 ## Language: `JavaScript`
 
