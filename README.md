@@ -27,3 +27,5 @@ See [setup instructions](https://codefellows.github.io/setup-guide/code-301/3-co
 
 [fifoAnimalShelter](./javascript/code-challenges/fifoAnimalShelter/README.md)
 
+[multiBracketValidation](./javascript/code-challenges/multiBracketValidation/README.md)
+
