@@ -1,6 +1,8 @@
 'use strict';
 
-class BinaryTree {
+const Node = require('./node.js');
+
+class BinarySearchTree {
   constructor(root = null) {
     this.root = root;
   }
@@ -38,23 +40,13 @@ class BinaryTree {
     return results;
   }
 
-}
-
-class BinarySearchTree {
-  constructor(root = null) {
-    this.root = root;
-  }
-
-  // preOrder() {
-  //   let results = [];
-  //   let _walk = node => {
-  //     if (node.value > node.left.value) {
-  //       _walk(node.left);
-  //     }
-  //     if (node.value < node.l)
+  // add(value) {
+  //   let node = new Node(value);
+  //   let _insert = (current, node) => {
+  //     if (node.value < current.value)
   //   }
   // }
+
 }
 
-module.exports = BinaryTree;
-
+module.exports = BinarySearchTree
