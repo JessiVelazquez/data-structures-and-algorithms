@@ -67,6 +67,7 @@ class BinaryTree {
     }
   }
 
+
   contains(value) {
     if (!this.root) return null;
     let current = this.root,
@@ -79,6 +80,17 @@ class BinaryTree {
     }
     if (!doesContain) return false;
     return doesContain;
+  }
+
+  findMaximumValue(tree) {
+    let array = this.preOrder(tree);
+    let max = 0;
+    for (let i = 0; i < array.length; i++) {
+      if (array[i] > max) {
+        max = array[i];
+      }
+    }
+    return max;
   }
 
 }

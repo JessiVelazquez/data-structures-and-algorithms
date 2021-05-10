@@ -14,6 +14,8 @@ Create a BinarySearchTree class:
 
 - Define a method named contains that accepts a value, and returns a boolean indicating whether or not the value is in the tree at least once.
 
+- Write an instance method called findMaximumValue(). Without utilizing any of the built-in methods available to your language, return the maximum value stored in the tree. You can assume that the values stored in the Binary Tree will be numeric.
+
 
 ## Approach & Efficiency
 
@@ -22,6 +24,8 @@ We use standard binary tree traversal functions for pre, in, and post methods. I
 We also have an add(value) function and a contains(value) function. For the add value function, we set a new node with the value passed in, and then establish the root of the tree as current node, then call the same add function on the current node.
 
 In our contains(value) function, we set the root value to current, and establish doesContain as false. We then have a while loop that runs as long as there is a current root and we have not yet found the contains value. In this loop, we check left if the value is less than current, and right if it is greater, doing this until we have found the container, at which point we return true. If we traverse the entire tree without finding the value, we return false.
+
+To find maximum value in a binary tree, we run the preOrder() function on the tree to get an array of the tree's values. We then use a for loop to iterate through the array, comparing the current value to the maximum value, before returning the maximum value at the end.
 
 ## API
 
@@ -127,4 +131,15 @@ while there are nodes and we have not found the value in the tree yet:
 
 if we never found the value, return false
 
-otherwise, return doesContain (which is true in this scenario)
+
+**findMaximumValue(tree) - pseudo code:**
+
+set array variable = preOrder() of tree
+
+establish maximum value variable set to 0
+
+for loop throughi array:
+
+  compare each value to current maximum, if larger, reset maximum to current value
+
+return maximum

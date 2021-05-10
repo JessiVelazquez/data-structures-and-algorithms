@@ -29,3 +29,5 @@ See [setup instructions](https://codefellows.github.io/setup-guide/code-301/3-co
 
 [multiBracketValidation](./javascript/code-challenges/multiBracketValidation/README.md)
 
+[trees](./javascript/code-challenges/tree/README.md)
+
