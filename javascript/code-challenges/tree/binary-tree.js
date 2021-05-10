@@ -8,7 +8,6 @@ class BinaryTree {
   }
 
   preOrder() {
-    if(!this.root) return null;
     let results = [];
     let _walk = node => {
       results.push(node.value);
@@ -20,7 +19,6 @@ class BinaryTree {
   }
 
   inOrder() {
-    if(!this.root) return null;
     let results = [];
     let _walk = node => {
       if (node.left) _walk(node.left);
@@ -32,7 +30,6 @@ class BinaryTree {
   }
 
   postOrder() {
-    if(!this.root) return null;
     let results = [];
     let _walk = node => {
       if (node.left) _walk(node.left);
@@ -45,27 +42,28 @@ class BinaryTree {
 
 
 
-  addNode(value) {
+  add(value) {
     let newNode = new Node(value);
+
+    let _walkAdd = (current, newNode) => {
+      if (newNode.value < current.value) {
+        if (!current.left) {
+          current.left = newNode;
+        } else {
+          _walkAdd(current.left, newNode);
+        }
+      } else {
+        if (!current.right) {
+          current.right = newNode;
+        } else {
+          _walkAdd(current.right, newNode);
+        }
+      }
+    };
     if (!this.root) {
       this.root = newNode;
-      return this;
-    }
-    let current = this.root;
-
-    const addNode = node => {
-      if(!current[node]) {
-        current[node] = newNode;
-        return this;
-      }
-      current = current[node];
-    };
-    while (true) {
-      if (value === current.value) {
-        return this;
-      }
-      if (value < current.value)addNode('left');
-      else addNode('right');
+    } else {
+      _walkAdd(this.root, newNode);
     }
   }
 
