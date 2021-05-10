@@ -43,12 +43,43 @@ class BinarySearchTree {
     return results;
   }
 
-  // add(value) {
-  //   let node = new Node(value);
-  //   let _insert = (current, node) => {
-  //     if (node.value < current.value)
-  //   }
-  // }
+  addNode(value) {
+    let newNode = new Node(value);
+    if (!this.root) {
+      this.root = newNode;
+      return this;
+    }
+    let current = this.root;
+
+    const addNode = node => {
+      if(!current[node]) {
+        current[node] = newNode;
+        return this;
+      }
+      current = current[node];
+    };
+    while (true) {
+      if (value === current.value) {
+        return this;
+      }
+      if (value < current.value)addNode('left');
+      else addNode('right');
+    }
+  }
+
+  contains(value) {
+    if (!this.root) return null;
+    let current = this.root,
+      doesContain = false;
+
+    while (current && !doesContain) {
+      if (value < current.value) current = current.left;
+      else if (value > current.value) current = current.right;
+      else doesContain = true;
+    }
+    if (!doesContain) return false;
+    return doesContain;
+  }
 
 }
 
