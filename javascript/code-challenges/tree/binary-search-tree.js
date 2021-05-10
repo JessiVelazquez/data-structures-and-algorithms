@@ -8,6 +8,7 @@ class BinarySearchTree {
   }
 
   preOrder() {
+    if(!this.root) return null;
     let results = [];
     let _walk = node => {
       results.push(node.value);
@@ -19,6 +20,7 @@ class BinarySearchTree {
   }
 
   inOrder() {
+    if(!this.root) return null;
     let results = [];
     let _walk = node => {
       if (node.left) _walk(node.left);
@@ -30,6 +32,7 @@ class BinarySearchTree {
   }
 
   postOrder() {
+    if(!this.root) return null;
     let results = [];
     let _walk = node => {
       if (node.left) _walk(node.left);
@@ -49,4 +52,4 @@ class BinarySearchTree {
 
 }
 
-module.exports = BinarySearchTree
+module.exports = BinarySearchTree;

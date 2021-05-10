@@ -1,11 +1,14 @@
 'use strict';
 
+let Node = require('./node.js');
+
 class BinaryTree {
   constructor(root = null) {
     this.root = root;
   }
 
   preOrder() {
+    if(!this.root) return null;
     let results = [];
     let _walk = node => {
       results.push(node.value);
@@ -17,6 +20,7 @@ class BinaryTree {
   }
 
   inOrder() {
+    if(!this.root) return null;
     let results = [];
     let _walk = node => {
       if (node.left) _walk(node.left);
@@ -28,6 +32,7 @@ class BinaryTree {
   }
 
   postOrder() {
+    if(!this.root) return null;
     let results = [];
     let _walk = node => {
       if (node.left) _walk(node.left);
@@ -36,6 +41,32 @@ class BinaryTree {
     };
     _walk(this.root);
     return results;
+  }
+
+
+
+  add(value) {
+    let newNode = new Node(value);
+    if (!this.root) {
+      this.root = newNode;
+      return this;
+    }
+    let current = this.root;
+
+    const addNode = node => {
+      if(!current[node]) {
+        current[node] = newNode;
+        return this;
+      }
+      current = current[node];
+    };
+    while (true) {
+      if (value === current.value) {
+        return this;
+      }
+      if (value < current.value)addNode('left');
+      else addNode('right');
+    }
   }
 
 }
