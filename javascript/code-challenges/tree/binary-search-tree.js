@@ -8,7 +8,6 @@ class BinarySearchTree {
   }
 
   preOrder() {
-    if(!this.root) return null;
     let results = [];
     let _walk = node => {
       results.push(node.value);
@@ -20,7 +19,6 @@ class BinarySearchTree {
   }
 
   inOrder() {
-    if(!this.root) return null;
     let results = [];
     let _walk = node => {
       if (node.left) _walk(node.left);
@@ -32,7 +30,6 @@ class BinarySearchTree {
   }
 
   postOrder() {
-    if(!this.root) return null;
     let results = [];
     let _walk = node => {
       if (node.left) _walk(node.left);
@@ -43,7 +40,7 @@ class BinarySearchTree {
     return results;
   }
 
-  addNode(value) {
+  add(value) {
     let newNode = new Node(value);
     if (!this.root) {
       this.root = newNode;
@@ -51,7 +48,7 @@ class BinarySearchTree {
     }
     let current = this.root;
 
-    const addNode = node => {
+    const add = node => {
       if(!current[node]) {
         current[node] = newNode;
         return this;
@@ -62,8 +59,8 @@ class BinarySearchTree {
       if (value === current.value) {
         return this;
       }
-      if (value < current.value)addNode('left');
-      else addNode('right');
+      if (value < current.value)add('left');
+      else add('right');
     }
   }
 
