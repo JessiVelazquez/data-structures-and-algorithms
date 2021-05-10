@@ -45,7 +45,7 @@ class BinaryTree {
 
 
 
-  add(value) {
+  addNode(value) {
     let newNode = new Node(value);
     if (!this.root) {
       this.root = newNode;
@@ -67,6 +67,20 @@ class BinaryTree {
       if (value < current.value)addNode('left');
       else addNode('right');
     }
+  }
+
+  contains(value) {
+    if (!this.root) return null;
+    let current = this.root,
+      doesContain = false;
+
+    while (current && !doesContain) {
+      if (value < current.value) current = current.left;
+      else if (value > current.value) current = current.right;
+      else doesContain = true;
+    }
+    if (!doesContain) return false;
+    return doesContain;
   }
 
 }
