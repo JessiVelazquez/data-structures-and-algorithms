@@ -55,6 +55,17 @@ describe('BINARY TREE TESTS', () => {
     expect(tree.contains(8)).toEqual(false);
   });
 
+  it('should find the maximum value in a binary tree', () => {
+    let tree = new BT();
+    tree.add(5);
+    tree.add(9);
+    tree.add(2);
+    tree.add(13);
+    tree.add(4);
+    tree.add(8);
+    expect(tree.findMaximumValue()).toEqual(13);
+  });
+
 });
 
 describe('BINARY SEARCH TREE TESTS', () => {
