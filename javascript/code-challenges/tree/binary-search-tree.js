@@ -42,25 +42,26 @@ class BinarySearchTree {
 
   add(value) {
     let newNode = new Node(value);
+
+    let _walkAdd = (current, newNode) => {
+      if (newNode.value < current.value) {
+        if (!current.left) {
+          current.left = newNode;
+        } else {
+          _walkAdd(current.left, newNode);
+        }
+      } else {
+        if (!current.right) {
+          current.right = newNode;
+        } else {
+          _walkAdd(current.right, newNode);
+        }
+      }
+    };
     if (!this.root) {
       this.root = newNode;
-      return this;
-    }
-    let current = this.root;
-
-    const add = node => {
-      if(!current[node]) {
-        current[node] = newNode;
-        return this;
-      }
-      current = current[node];
-    };
-    while (true) {
-      if (value === current.value) {
-        return this;
-      }
-      if (value < current.value)add('left');
-      else add('right');
+    } else {
+      _walkAdd(this.root, newNode);
     }
   }
 
