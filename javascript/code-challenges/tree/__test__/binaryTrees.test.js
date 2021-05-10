@@ -28,18 +28,19 @@ describe('BINARY TREE TESTS', () => {
 
   it('can successfully return a collection from a preorder, inorder, and postorder traversal', () => {
     let tree = new BT();
-    tree.add(1);
+    tree.add(7);
     tree.add(2);
-    tree.add(3);
     tree.add(4);
     tree.add(5);
-    tree.add(6);
-    // console.log('PRE', tree.preOrder());
-    // console.log('IN', tree.inOrder());
-    // console.log('POST', tree.postOrder());
-    expect(tree.preOrder()).toEqual([1,2,3,4,5,6]);
-    expect(tree.inOrder()).toEqual([1,2,3,4,5,6]);
-    expect(tree.postOrder()).toEqual([6,5,4,3,2,1]);
+    tree.add(1);
+    tree.add(9);
+    console.log('TREE', tree);
+    console.log('PRE', tree.preOrder());
+    console.log('IN', tree.inOrder());
+    console.log('POST', tree.postOrder());
+    expect(tree.preOrder()).toEqual([7,2,1,4,5,9]);
+    expect(tree.inOrder()).toEqual([1,2,4,5,7,9]);
+    expect(tree.postOrder()).toEqual([1,5,4,2,9,7]);
   });
 
   it('should return true if value is contained in tree or false if not', () => {
