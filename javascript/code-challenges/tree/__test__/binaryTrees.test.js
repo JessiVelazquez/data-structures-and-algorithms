@@ -34,10 +34,6 @@ describe('BINARY TREE TESTS', () => {
     tree.add(5);
     tree.add(1);
     tree.add(9);
-    console.log('TREE', tree);
-    console.log('PRE', tree.preOrder());
-    console.log('IN', tree.inOrder());
-    console.log('POST', tree.postOrder());
     expect(tree.preOrder()).toEqual([7,2,1,4,5,9]);
     expect(tree.inOrder()).toEqual([1,2,4,5,7,9]);
     expect(tree.postOrder()).toEqual([1,5,4,2,9,7]);
@@ -64,6 +60,18 @@ describe('BINARY TREE TESTS', () => {
     tree.add(4);
     tree.add(8);
     expect(tree.findMaximumValue()).toEqual(13);
+  });
+
+  it('should perform a breadth first traversal of a binary tree and return an array of the values in expected order', () => {
+    let tree = new BT();
+    tree.add(5);
+    tree.add(9);
+    tree.add(2);
+    tree.add(13);
+    tree.add(4);
+    tree.add(8);
+    console.log('BREADTH--------', tree.breadthFirst());
+    expect(tree.breadthFirst()).toEqual([5,2,9,4,8,13]);
   });
 
 });
