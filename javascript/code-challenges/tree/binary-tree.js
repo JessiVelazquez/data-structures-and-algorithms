@@ -1,6 +1,7 @@
 'use strict';
 
 let Node = require('./node.js');
+let Queue = require('./queue.js');
 
 class BinaryTree {
   constructor(root = null) {
@@ -39,7 +40,6 @@ class BinaryTree {
     _walk(this.root);
     return results;
   }
-
 
 
   add(value) {
@@ -91,6 +91,24 @@ class BinaryTree {
       }
     }
     return max;
+  }
+
+  breadthFirst() {
+    let queue = new Queue();
+    let array = [];
+    let current = this.root;
+    queue.enqueue(current);
+    while(queue.peek()) {
+      current = queue.dequeue().value;
+      array.push(current.value);
+      if (current.left) {
+        queue.enqueue(current.left);
+      }
+      if (current.right) {
+        queue.enqueue(current.right);
+      }
+    }
+    return array;
   }
 
 }

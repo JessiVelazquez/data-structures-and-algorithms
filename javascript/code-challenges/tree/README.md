@@ -27,6 +27,8 @@ In our contains(value) function, we set the root value to current, and establish
 
 To find maximum value in a binary tree, we run the preOrder() function on the tree to get an array of the tree's values. We then use a for loop to iterate through the array, comparing the current value to the maximum value, before returning the maximum value at the end.
 
+Write a breadth first traversal method which takes a Binary Tree as its unique input. Without utilizing any of the built-in methods available to your language, traverse the input tree using a Breadth-first approach, and return a list of the values in the tree in the order they were encountered.
+
 ## API
 
 **preOrder() - pseudo code:**
@@ -138,8 +140,31 @@ set array variable = preOrder() of tree
 
 establish maximum value variable set to 0
 
-for loop throughi array:
+for loop through array:
 
   compare each value to current maximum, if larger, reset maximum to current value
 
 return maximum
+
+
+**binaryTree() - pseudo code:**
+
+set a new Queue
+
+set a new array (will be the answer)
+
+set current to root node
+
+enqueue current
+
+while loop through queue:
+
+  reassign current to the value of a queue.dequeue()
+
+  push current.value to array
+
+  if there is a current.left, enqueue it
+
+  if there is a current.right, enqueue it
+
+return array;
