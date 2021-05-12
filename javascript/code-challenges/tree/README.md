@@ -1,170 +1,52 @@
-# Challenge 15 - Binary Tree and Binary Search Tree
+# Challenge 18 - FizzBuzz
 
 ## Challenge Summary
 
-Create a Node class that has properties for the value stored in the node, the left child node, and the right child node.
+Write a function called FizzBuzzTree which takes a k-ary tree as an argument.
 
-Create a BinaryTree class:
+Without utilizing any of the built-in methods available to your language, determine whether or not the value of each node is divisible by 3, 5 or both. Create a new tree with the same structure as the original, but the values modified as follows:
 
-- Define a method for each of the depth first traversals called preOrder, inOrder, and postOrder which returns an array of the values, ordered appropriately.
+- If the value is divisible by 3, replace the value with “Fizz”
 
-Create a BinarySearchTree class:
+- If the value is divisible by 5, replace the value with “Buzz”
 
-- Define a method named add that accepts a value, and adds a new node with that value in the correct location in the binary search tree.
+- If the value is divisible by 3 and 5, replace the value with “FizzBuzz”
 
-- Define a method named contains that accepts a value, and returns a boolean indicating whether or not the value is in the tree at least once.
+- If the value is not divisible by 3 or 5, simply turn the number into a String.
 
-- Write an instance method called findMaximumValue(). Without utilizing any of the built-in methods available to your language, return the maximum value stored in the tree. You can assume that the values stored in the Binary Tree will be numeric.
+Return a new tree.
 
 
 ## Approach & Efficiency
 
-We use standard binary tree traversal functions for pre, in, and post methods. In these functions, we set an empty array, and return null if the tree has no root. But, if there is a root we walk left and then right, either pushing the root value to the array first (pre function), second (in function), or third (post function). Then, we call this same walk function the root node, which will be the new node we are on, so this will continue to push node values to the array as we move further down the levels of the tree.
+Here we have a Big O notation of O(n), because we must evaluate each node in the tree.
 
-We also have an add(value) function and a contains(value) function. For the add value function, we set a new node with the value passed in, and then establish the root of the tree as current node, then call the same add function on the current node.
+We return null if the tree has no root. Otherwise, we instantiate the results variable and set it equal to the tree we pass in to the function, so we can work with it.
 
-In our contains(value) function, we set the root value to current, and establish doesContain as false. We then have a while loop that runs as long as there is a current root and we have not yet found the contains value. In this loop, we check left if the value is less than current, and right if it is greater, doing this until we have found the container, at which point we return true. If we traverse the entire tree without finding the value, we return false.
+We enter a recursive traversal function (_walk) that is essentially the preOrder() traversal function with a series of conditional statements in place of the results.push line. In these conditionals, we evaluate whether the node value is divisible by 3, 5, or both, and reassign the value to "Fizz", "Buzz", or "FizzBuzz" as needed. 
 
-To find maximum value in a binary tree, we run the preOrder() function on the tree to get an array of the tree's values. We then use a for loop to iterate through the array, comparing the current value to the maximum value, before returning the maximum value at the end.
+After the conditionals, we again call the recusive _walk function on the root, which will run the conditionals on the next node value.
 
-Write a breadth first traversal method which takes a Binary Tree as its unique input. Without utilizing any of the built-in methods available to your language, traverse the input tree using a Breadth-first approach, and return a list of the values in the tree in the order they were encountered.
+At the end, we return results.
+
+In our test, we run a preOrder() function on the results to get an array of our result values.
 
 ## API
 
-**preOrder() - pseudo code:**
+**fizzBuzzTree() - pseudo code:**
 
-if there is no root of the tree, return null
+if tree has no root, return null
 
-set empty array
+results = tree (passed in to function)
 
-start at root node:
+Recursive _walk function:
 
-  push value to array
+  if node value/3 & 5, node value = FizzBuzz
 
-  if there is a left node, move left
+  if node value/5, node value = Buzz
 
-  if there is a right node, move right
+  if node value/3, node value = Fizz
 
-start at new root node, repeat ^above^ until we reach a leaf
-
-start over at top root
+Recursive _walk called again on root
 
 return results
-
-**inOrder() - pseudo code:**
-
-if there is no root of the tree, return null
-
-set empty array
-
-start at root node:
-
-  if there is a left node, move left
-
-  push value to array
-
-  if there is a right node, move right
-
-start at new root node, repeat ^above^ until we reach a leaf
-
-start over at top root
-
-return results
-
-**preOrder() - pseudo code:**
-
-if there is no root of the tree, return null
-
-set empty array
-
-start at root node:
-
-  if there is a left node, move left
-
-  if there is a right node, move right
-
-  push value to array
-
-start at new root node, repeat ^above^ until we reach a leaf
-
-start over at top root
-
-return results
-
-**addNode(value) - pseudo code:**
-
-establish new Node at value passed in
-
-if there is no root in the tree, set new Node to root and return, otherwise:
-
-  set current to root
-
-if current does not exist
-
-  set current to new node
-
-  return tree
-
-traverse tree
-
-  if value === current.value
-
-    return tree
-
-  if value is less than current, add node as left
-
-  if value is greater than current, add value as right
-
-**contains(value) - pseudo code:**
-
-if there is no root of the tree, return null
-
-set current to root
-
-  set doesContain to false
-
-while there are nodes and we have not found the value in the tree yet:
-
-  if value is less than current, move left
-
-  if value is greater than current, move right
-
-  if value is equal to current, doesContain = true
-
-if we never found the value, return false
-
-
-**findMaximumValue(tree) - pseudo code:**
-
-set array variable = preOrder() of tree
-
-establish maximum value variable set to 0
-
-for loop through array:
-
-  compare each value to current maximum, if larger, reset maximum to current value
-
-return maximum
-
-
-**binaryTree() - pseudo code:**
-
-set a new Queue
-
-set a new array (will be the answer)
-
-set current to root node
-
-enqueue current
-
-while loop through queue:
-
-  reassign current to the value of a queue.dequeue()
-
-  push current.value to array
-
-  if there is a current.left, enqueue it
-
-  if there is a current.right, enqueue it
-
-return array;
