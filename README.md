@@ -31,3 +31,5 @@ See [setup instructions](https://codefellows.github.io/setup-guide/code-301/3-co
 
 [trees](./javascript/code-challenges/tree/README.md)
 
+[FizzBuzz](./javascript/code-challenges/fizzBuzzTree/README.md)
+
