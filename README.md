@@ -31,3 +31,9 @@ See [setup instructions](https://codefellows.github.io/setup-guide/code-301/3-co
 
 [trees](./javascript/code-challenges/tree/README.md)
 
+[insertion-sort](./javascript/code-challenges/instertion-sort/blog.md)
+
+[merge-sort](./javascript/code-challenges/merge-sort/blog.md)
+
+[quick-sort](./javascript/code-challenges/quick-sort/blog.md)
+
