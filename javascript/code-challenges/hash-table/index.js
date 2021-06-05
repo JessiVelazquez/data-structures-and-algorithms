@@ -18,7 +18,7 @@
 
 class Node {
   constructor(val) {
-    this.val=val;
+    this.val = val;
     this.next = null;
   }
 }
@@ -44,10 +44,21 @@ class LL {
 
     let current = this.head;
 
-    while(current); {
+    while(current) {
       console.log(current.val);
       current = current.next;
     }
+  }
+
+  toString() {
+    let node = this.head;
+    let result = '';
+    while(node) {
+      result = result + `{ ${node.value} } -> `
+      if (node.next === null){ result = result + `NULL`}
+      node = node.next;
+    }
+    return result;
   }
 }
 
@@ -67,7 +78,7 @@ class Hashmap {
     }, 0) * 19 % this.size;
   }
 
-  //set is to adda  new key value pair in our hashmap. to do that we either a) create new lnked list with single item and put it in the proper index spot or b) append to a pre existing linked list, since we have a collision.
+  //  set is to add a new key value pair in our hashmap. to do that we either a) create new lnked list with single item and put it in the proper index spot or b) append to a pre existing linked list, since we have a collision.
 
 
   set(key, val) {
@@ -78,24 +89,38 @@ class Hashmap {
       ll.add([key, val]);
       this.storage[hash] = ll;
     } else {
-      this.storage[hash].add(key, val);
+      let data = [key, val];
+      this.storage[hash].add(data);
     }
   }
 
   //TODO:
-  // get the iteam by a key. get(key) {}....... - takes a key, like "alex" below.
+  // get the item by a key. get(key) {}....... - takes a key, like "alex" below.
   // hint - if we can grab char code for every string item, it means we can also extract data from the key - reverse the hash function.
+
+  get(key) {
+    let hash = this.hash(key);
+    let ll = this.storage[hash];
+    if (ll === null) {
+      return 'no list';
+    } else {
+      let current = ll.head;
+      while(current) {
+        console.log(current.val);
+        current = current.next;
+      }
+    }
+  }
 }
 
 let hashmap = new Hashmap(4000);
 
 hashmap.set('jessi', 'velazquez');
+hashmap.set('alex', 'johnson');
 hashmap.set('alex', 'boberson');
 hashmap.set('molly', 'myers');
 hashmap.set('bob', 'smith');
-hashmap.set('alex', 'johnson');
 hashmap.set('jessi', 'cooper');
 
-console.log(hashmap);
 
-hashmap.storage.forEach()
+hashmap.get('jessi');
