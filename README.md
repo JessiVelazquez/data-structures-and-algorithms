@@ -37,3 +37,5 @@ See [setup instructions](https://codefellows.github.io/setup-guide/code-301/3-co
 
 [quick-sort](./javascript/code-challenges/quick-sort/blog.md)
 
+[hashtables](./javascript/code-challenges/hashtable/README.md)
+

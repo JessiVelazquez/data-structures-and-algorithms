@@ -72,36 +72,39 @@ class Hashmap {
   }
 
   get(key) {
+    let bucket = [];
     let hash = this.hash(key);
     let ll = this.storage[hash];
     if (!this.storage[hash]) {
-      console.log('no list');
       return 'no list';
     } else {
       let current = ll.head;
       while(current) {
-        console.log(current.val);
+        bucket.push(current.val);
         current = current.next;
       }
+      return bucket;
     }
   }
 }
 
 //------------EXECUTABLE--------------\\
 
-let hashmap = new Hashmap(4000);
+// let hashmap = new Hashmap(4000);
 
-hashmap.set('jessi', 'velazquez');
-hashmap.set('alex', 'johnson');
-hashmap.set('alex', 'boberson');
-hashmap.set('alex', 'rodriguez');
-hashmap.set('molly', 'molecule');
-hashmap.set('bob', 'smith');
-hashmap.set('jessi', 'cooper');
-hashmap.set('dog', 'theBountyHunter');
-hashmap.set('god', 'dammit');
+// hashmap.set('jessi', 'velazquez');
+// hashmap.set('alex', 'johnson');
+// hashmap.set('alex', 'boberson');
+// hashmap.set('alex', 'rodriguez');
+// hashmap.set('molly', 'molecule');
+// hashmap.set('bob', 'smith');
+// hashmap.set('jessi', 'cooper');
+// hashmap.set('dog', 'theBountyHunter');
+// hashmap.set('god', 'dammit');
 
 
-hashmap.get('alex');
+// console.log(hashmap.get('alex'));
+
+module.exports = Hashmap;
 
 
