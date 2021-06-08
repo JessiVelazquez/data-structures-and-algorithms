@@ -39,3 +39,7 @@ See [setup instructions](https://codefellows.github.io/setup-guide/code-301/3-co
 
 [hashtables](./javascript/code-challenges/hashtable/README.md)
 
+[Repeated Word](javascript/code-challenges/repeatedWord/repeated-word.js)
+
+[Left Join](javascript/code-challenges/leftJoin/README.md)
+
