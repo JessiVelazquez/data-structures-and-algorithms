@@ -9,16 +9,34 @@ let string = 'It was a queer, sultry summer, the summer they electrocuted the Ro
 
 //--------------HASH TABLE VERSION-------------\\
 // function repeatedWord(str) {
-//   let split = str.split(' ');
+//   let regex = /(,)+|(!)+|(-)+|(\.)|(\?)/g;
+//   let cleanStr = str.replace(regex, '');
+//   let split = cleanStr.split(' ');
+//   console.log(split);
 //   for (let i = 0; i < split.length; i++) {
 //     hashTable.set(split[i].toLowerCase(), split[i]);
 //   }
-//   console.log(hashTable);
 //   for (let j = 0; j < split.length; j++) {
-//     let wordCount = hashTable.get(split[j]);
-//     console.log(wordCount.length);
+//     hashTable.get(split[j]);
 //   }
 // }
+
+const repeatedWord = (str) => {
+  if(!str) return null;
+  let cleanStr = str.replace(/(,)+|(!)+|(-)+|(\.)|(\?)/g, '');
+  let newArr = cleanStr.toLowerCase().split(' ');
+  let result = [];
+  for (let i = 0; i < newArr.length; i++) {
+    for (let j = 0; j < result.length; j++) {
+      if (newArr[i] === result[j]) {
+        return `${newArr[i]} is the first repeated word`;
+      }
+    }
+    result.push(newArr[i]);
+  }
+  return 'no repeating words';
+};
+
 
 
 //----------THIS LOGIC SHOULD WORK--------------\\
@@ -30,27 +48,30 @@ let string = 'It was a queer, sultry summer, the summer they electrocuted the Ro
 
 // clean up with regex = (/(,)+|(!)+|(-)+|(\.)|(\?)/g, '')
 
-function repeatedWord(str) {
-  let array1 = [];
-  let split = str.split(' ');
-  for (let i = 0; i < split.length; i++) {
-    array1.push(split[i]);
-  }
-  for (let i = 0; i < split.length; i++) {
-    let wordCounter = 0;
-    for (let j = 0; j < array1.length; j++) {
-      if (split[i] === array1[j]) {
-        wordCounter = wordCounter + 1;
-      }
-      if (wordCounter > 1) {
-        return split[i];
-      }
-    }
-  }
-}
+// function repeatedWord(str) {
+//   let array1 = [];
+//   let split = str.split(' ');
+//   for (let i = 0; i < split.length; i++) {
+//     array1.push(split[i]);
+//   }
+//   for (let i = 0; i < split.length; i++) {
+//     let wordCounter = 0;
+//     for (let j = 0; j < array1.length; j++) {
+//       if (split[i] === array1[j]) {
+//         wordCounter = wordCounter + 1;
+//       }
+//       if (wordCounter > 1) {
+//         return split[i];
+//       }
+//     }
+//   }
+// }
 
 let answer = repeatedWord(string);
 
 console.log(answer);
 
 module.exports = repeatedWord;
+
+
+
