@@ -7,38 +7,6 @@ let string = 'It was a queer, sultry summer, the summer they electrocuted the Ro
 // let hashTable = new Hashmap(4000);
 
 
-//--------------HASH TABLE VERSION-------------\\
-// function repeatedWord(str) {
-//   let regex = /(,)+|(!)+|(-)+|(\.)|(\?)/g;
-//   let cleanStr = str.replace(regex, '');
-//   let split = cleanStr.split(' ');
-//   console.log(split);
-//   for (let i = 0; i < split.length; i++) {
-//     hashTable.set(split[i].toLowerCase(), split[i]);
-//   }
-//   for (let j = 0; j < split.length; j++) {
-//     hashTable.get(split[j]);
-//   }
-// }
-
-const repeatedWord = (str) => {
-  if(!str) return null;
-  let cleanStr = str.replace(/(,)+|(!)+|(-)+|(\.)|(\?)/g, '');
-  let newArr = cleanStr.toLowerCase().split(' ');
-  let result = [];
-  for (let i = 0; i < newArr.length; i++) {
-    for (let j = 0; j < result.length; j++) {
-      if (newArr[i] === result[j]) {
-        return `${newArr[i]} is the first repeated word`;
-      }
-    }
-    result.push(newArr[i]);
-  }
-  return 'no repeating words';
-};
-
-
-
 //----------THIS LOGIC SHOULD WORK--------------\\
 // split string into array.
 // set up empty array
@@ -66,6 +34,38 @@ const repeatedWord = (str) => {
 //     }
 //   }
 // }
+
+
+const repeatedWord = (str) => {
+  if(!str) return null;
+  let cleanStr = str.replace(/(,)+|(!)+|(-)+|(\.)|(\?)/g, '');
+  let newArr = cleanStr.toLowerCase().split(' ');
+  let answer = [];
+  for (let i = 0; i < newArr.length; i++) {
+    for (let k = 0; k < answer.length; k++) {
+      if (newArr[i] === answer[k]) {
+        return `${newArr[i]} is the first repeated word`;
+      }
+    }
+    answer.push(newArr[i]);
+  }
+  return 'no repeating words';
+};
+
+//--------------HASH TABLE VERSION-------------\\
+// function repeatedWord(str) {
+//   let regex = /(,)+|(!)+|(-)+|(\.)|(\?)/g;
+//   let cleanStr = str.replace(regex, '');
+//   let split = cleanStr.split(' ');
+//   console.log(split);
+//   for (let i = 0; i < split.length; i++) {
+//     hashTable.set(split[i].toLowerCase(), split[i]);
+//   }
+//   for (let j = 0; j < split.length; j++) {
+//     hashTable.get(split[j]);
+//   }
+// }
+
 
 let answer = repeatedWord(string);
 
