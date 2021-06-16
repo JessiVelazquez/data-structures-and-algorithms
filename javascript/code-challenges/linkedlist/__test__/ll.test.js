@@ -130,7 +130,7 @@ describe('Linked List', () => {
     list.append(fourth);
     list.insertAfter(second, third);
     expect(list.head.next.next.value).toEqual(3);
-    console.log(list);
+    console.log('LIST----', list);
   });
 
   it('Can successfully insert a node after the last node of the linked list', () => {
